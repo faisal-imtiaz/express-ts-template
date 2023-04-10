@@ -1,0 +1,19 @@
+{
+  "name": "express-ts-template",
+  "version": "1.0.0",
+  "description": "Express-typescript template",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faisal-imtiaz/express-ts-template.git"
+  },
+  "author": "Faisal Imtiaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faisal-imtiaz/express-ts-template/issues"
+  },
+  "homepage": "https://github.com/faisal-imtiaz/express-ts-template#readme"
+}
