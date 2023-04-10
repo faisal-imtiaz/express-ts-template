@@ -1,0 +1,15 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const user_service_1 = __importDefault(require("../services/user.service"));
+const userController = {
+    createUser(req, res) {
+        user_service_1.default.createUser(req, res);
+    },
+    getUser(req, res) {
+        //Get User
+    },
+};
+exports.default = userController;
