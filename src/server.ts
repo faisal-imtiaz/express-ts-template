@@ -18,7 +18,7 @@ app.use(cors({
 
 app.use(morgan('dev'));
 
-// const dbURI: string = 'mongodb://admin:9UjgGq42LRWmAEZj@52.77.148.107:27017/admin';
+// const dbURI: string = '';
 // mongoose
 //   .connect(dbURI)
 //   .then(() => console.log('Connected to database'))
