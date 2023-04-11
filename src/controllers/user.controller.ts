@@ -10,12 +10,12 @@ interface User {
 
 const userController = {
 
-    createUser(req: Request, res: Response) {
-        userService.createUser(req, res);
+  createUser(req: Request, res: Response) {
+       userService.createUser(req, res);
     },
 
-  getUser(req: Request, res: Response) {
-    //Get User
+  getUsers(req: Request, res: Response) {
+    userService.getAllUsers(req, res);
   },
 
 };

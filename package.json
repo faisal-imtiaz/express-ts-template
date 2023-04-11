@@ -4,9 +4,10 @@
   "description": "Express-typescript template",
   "main": "server.ts",
   "scripts": {
-  "build": "npx tsc",
-  "start": "node dist/server.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run build && npm run start",
+    "start": "nodemon dist/server.js",
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,19 @@
   },
   "homepage": "https://github.com/faisal-imtiaz/express-ts-template#readme",
   "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
-    "@types/node": "^18.15.11"
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22"
   }
 }
