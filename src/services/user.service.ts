@@ -1,19 +1,19 @@
-interface User {
-    id: number;
-    name: string;
-    email: string;
+import User from '../models/user.model';
+import { IUser } from '../types';
+
+export default class UserService {
+  constructor(private readonly userModel: typeof User) {}
+
+  async createUser(user: IUser): Promise<IUser> {
+    const newUser = new this.userModel(user);
+    return await newUser.save();
   }
-  
-  const userService = {
-  
-    createUser(req: any, res: any ): void {
-        console.log("CREATING USER...");
-        res.send("User Created!");
-    },
-    getAllUsers(req: any, res: any): void {
-      console.log("Getting all USERS...");
-      res.send("Users List!");
-  },
-  };
-  
-  export default userService;
+
+  async findUserByEmail(email: string): Promise<IUser | null> {
+    return await this.userModel.findOne({ email });
+  }
+
+  async getAllUsers(): Promise<IUser[]> {
+    return await this.userModel.find();
+  }
+}

@@ -11,16 +11,14 @@ const port = 3100;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//Allowed all origins for now
 app.use(cors({
-    origin: [
-        '*'
-    ]
-}
-));
+    origin: ['*']
+}));
 
 app.use(morgan('dev'));
 
-// const dbURI: string = 'mongodb://localhost:27017/expressTS';
+// const dbURI: string = 'mongodb://admin:9UjgGq42LRWmAEZj@52.77.148.107:27017/admin';
 // mongoose
 //   .connect(dbURI)
 //   .then(() => console.log('Connected to database'))
@@ -29,5 +27,5 @@ app.use(morgan('dev'));
 app.use('/user', userRoutes);
 
 app.listen(port, () => {
-    console.log(`[Server]: I am running at localhost:${port}`);
+    console.log(`Server running at localhost:${port}`);
 });
