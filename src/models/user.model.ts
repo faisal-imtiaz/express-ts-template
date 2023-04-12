@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
-import { IUser } from '../types';
+import mongoose, { Schema } from "mongoose";
+import { IUser } from "../types";
 
 const UserSchema: Schema = new Schema({
   name: { type: String, required: true },
@@ -7,10 +7,10 @@ const UserSchema: Schema = new Schema({
   password: { type: String, required: true },
   apiKey: {
     type: [{
-      value: { type: String, required: true },
-      status: { type: String, enum: ['active', 'closed'], default: 'active' },
+      value: { type: String },
+      active: { type: Boolean, default: false },
     }],
   },
 });
 
-export default mongoose.model<IUser>('User', UserSchema);
+export default mongoose.model<IUser>("User", UserSchema);

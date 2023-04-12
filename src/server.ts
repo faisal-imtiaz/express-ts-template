@@ -1,9 +1,10 @@
-import express, { Express, Request, Response } from 'express';
-import bodyParser from 'body-parser';
-import morgan from 'morgan';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import userRoutes from './routes/user.routes';
+import express, { Express } from "express";
+import bodyParser from "body-parser";
+import morgan from "morgan";
+import cors from "cors";
+import mongoose from "mongoose";
+import userRoutes from "./routes/user.routes";
+import authRoutes from "./routes/auth.routes";
 
 const app: Express = express();
 const port = 3100;
@@ -11,20 +12,20 @@ const port = 3100;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//Allowed all origins for now
+// Allowed all origins for now
 app.use(cors({
-    origin: ['*']
+    origin: ["*"]
 }));
 
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
-// const dbURI: string = '';
-// mongoose
-//   .connect(dbURI)
-//   .then(() => console.log('Connected to database'))
-//   .catch((err: Error) => console.log(err));
+mongoose
+  .connect("mongodb://localhost:27017/nft_rewards_local")
+  .then(() => console.log("Connected to database"))
+  .catch((err: Error) => console.log(err));
 
-app.use('/user', userRoutes);
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at localhost:${port}`);

@@ -7,6 +7,7 @@
     "dev": "npm run build && npm run start",
     "start": "nodemon dist/server.js",
     "build": "npx tsc",
+    "lint": "tslint -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,18 +22,23 @@
   "homepage": "https://github.com/faisal-imtiaz/express-ts-template#readme",
   "dependencies": {
     "@types/mongoose": "^5.11.97",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.15.11",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "tslint": "^6.1.3"
   }
 }
