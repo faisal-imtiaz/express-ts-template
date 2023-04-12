@@ -53,15 +53,23 @@ export default class UserController {
             message: "Incorrect password"
           });
         } else {
-          const secret = "secret_key";
-          const token = jwt.sign({ id: user.id }, secret, { expiresIn: "1d" });
-          res.status(200).json({
-            data: {
-              user,
-              token
-            },
-            message: "Login successful"
-          });
+          const secret: string | undefined = process.env.JWTSECRET;
+          let token;
+          if (secret) {
+            token = jwt.sign({ id: user.id }, secret, { expiresIn: "1d" });
+            res.status(200).json({
+              data: {
+                user,
+                token
+              },
+              message: "Login successful"
+            });
+          } else {
+            res.status(401).json({
+              data: null,
+              message: "JWT secret required!"
+            });
+          }
         }
       }
     } catch (e) {

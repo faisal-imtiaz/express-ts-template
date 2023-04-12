@@ -9,6 +9,7 @@ import authRoutes from "./routes/auth.routes";
 const app: Express = express();
 const port = 3100;
 
+require('dotenv').config();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

@@ -7,8 +7,11 @@ const authorize = (req: Request | any, res: Response, next: Function) => {
   if (authHeader) {
     const token = authHeader.split(' ')[1];
     try {
-      const secret = "secret_key";
-      const decodedToken = jwt.verify(token, secret);
+      const secret: string | undefined = process.env.JWTSECRET;
+      let decodedToken;
+      if (secret) {
+        decodedToken = jwt.verify(token, secret);
+      }
       req.user = decodedToken;
       next();
     } catch (err) {
