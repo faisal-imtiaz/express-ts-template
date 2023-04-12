@@ -20,7 +20,7 @@ app.use(cors({
 app.use(morgan("dev"));
 
 mongoose
-  .connect("mongodb://localhost:27017/nft_rewards_local")
+  .connect("mongodb://localhost:27017/local_DB_name")
   .then(() => console.log("Connected to database"))
   .catch((err: Error) => console.log(err));
 
