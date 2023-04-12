@@ -1,7 +1,7 @@
 {
   "name": "express-ts-template",
   "version": "1.0.0",
-  "description": "Express-typescript template",
+  "description": "Express-typescript template with auth",
   "main": "server.ts",
   "scripts": {
     "dev": "npm run build && npm run start",
